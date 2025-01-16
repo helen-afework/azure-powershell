@@ -8,6 +8,12 @@ parameters:
   type: boolean
   default: false
 
+Resources:
+  repositories:
+  - repository: azure-powershell-devops
+    type: git
+    name: azure-powershell-devops
+
 variables:
   WindowsName: windows
   WindowsAgentPoolName: pool-windows-2019
@@ -46,6 +52,18 @@ jobs:
 
   steps:
   - checkout: self
+  - checkout: azure-powershell-devops
+    path: "azure-powershell-devops"
+    
+  - task: PowerShell@2
+    displayName: 'display secondary repo'
+    inputs:
+      targetType: inline
+      pwsh: true
+      script: |
+        ls "$(Agent.BuildDirectory)/azure-powershell-devops"
+        exit 1
+
   - template: util/get-github-pat-steps.yml
   - task: UseDotNet@2
     displayName: 'Use .NET Core sdk 6.0.x'
