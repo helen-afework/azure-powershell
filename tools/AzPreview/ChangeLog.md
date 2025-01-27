@@ -1,3 +1,38 @@
+## 13.2.0 - February 2025
+#### Az.Accounts 4.0.2
+* Fixed unsigned dll:
+    - 'System.Buffers.dll'
+    - 'System.Memory.dll'
+
+#### Az.Automation 1.11.1
+* Fixed Bug: Start-AzAutomationRunbook throws object reference error when the automation account is not available in the subscription 
+
+#### Az.Blueprint 0.4.6
+* Deprecation of Blueprint cmdlets.
+
+#### Az.Compute 9.1.0
+* Added new parameter 'EncryptionIdentity' to cmdlet 'Set-AzVMDiskEncryptionExtension'
+* Added new parameter 'EncryptionIdentity' to cmdlet 'New-AzVMConfig'
+
+#### Az.DataProtection 2.6.1
+* Updated Help Doc of Get-AzAccessToken Usage in DataProtection
+
+#### Az.EventHub 5.2.0
+*  Added parameter 'MinCompactionLagInMin', 'TimestampType' and 'UserMetadata' to cmdlets 'New-AzEventHub' and 'Set-AzEventHub'
+*  Supported 'DelectorCompact' policy in parameter 'Cleanup-policy' of cmdlet 'new-AzEventhub'
+
+#### Az.Network 7.14.0
+* Updated 'New-AzRouteServer', 'Get-AzRouteServer', and 'Update-AzRouteServer' to include VirtualRouterAutoScaleConfiguration.
+
+#### Az.Resources 7.8.1
+* Updated to use bicep parameter --documentation-uri instead of the deprecated --documentationUri
+
+#### Az.StorageSync 2.4.1
+* Removed 'Microsoft.Azure.Management.Authorization' Version '2.13.0-preview' package reference
+
+#### Az.Synapse 3.1.1
+* Removed 'Microsoft.Azure.Management.Synapse' Version '2.6.0-preview' package reference 
+
 ## 13.1.0 - January 2025
 #### Az.Accounts 4.0.1
 * Upgraded nuget package to signed package.
