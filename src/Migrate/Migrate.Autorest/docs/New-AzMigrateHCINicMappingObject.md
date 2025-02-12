@@ -40,7 +40,7 @@ Get NIC object to provide input for New-AzMigrateHCIServerReplication and Set-Az
 ## PARAMETERS
 
 ### -CreateAtTarget
-Specifies whether the this Nic should be created at target.
+Specifies whether this Nic should be created at target.
 
 ```yaml
 Type: System.String
@@ -106,7 +106,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20210216Preview.AzStackHCINicInput
+### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.AzStackHCINicInput
 
 ## NOTES
 

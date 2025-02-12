@@ -14,8 +14,8 @@ Gets the details of the fabric.
 
 ### List (Default)
 ```
-Get-AzMigrateHCIReplicationFabric [-SubscriptionId <String[]>] [-ContinuationToken <String>]
- [-DefaultProfile <PSObject>] [<CommonParameters>]
+Get-AzMigrateHCIReplicationFabric [-SubscriptionId <String[]>] [-DefaultProfile <PSObject>]
+ [<CommonParameters>]
 ```
 
 ### Get
@@ -168,7 +168,7 @@ Continuation token from the previous call.
 
 ```yaml
 Type: System.String
-Parameter Sets: List, List1
+Parameter Sets: List1
 Aliases:
 
 Required: False
@@ -265,7 +265,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20210216Preview.IFabricModel
+### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.IFabricModel
 
 ## NOTES
 

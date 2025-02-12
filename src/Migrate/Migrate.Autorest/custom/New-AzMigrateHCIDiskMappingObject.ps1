@@ -22,7 +22,7 @@ The New-AzMigrateHCIDiskMappingObject cmdlet creates a mapping of the source dis
 https://learn.microsoft.com/powershell/module/az.migrate/new-azmigratehcidiskmappingobject
 #>
 function New-AzMigrateHCIDiskMappingObject {
-    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20210216Preview.AzStackHCIDiskInput])]
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.AzStackHCIDiskInput])]
     [CmdletBinding(PositionalBinding = $false)]
     param(
         [Parameter(Mandatory)]
@@ -59,19 +59,35 @@ function New-AzMigrateHCIDiskMappingObject {
         [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Category('Path')]
         [System.String]
         # Specifies the disk format.
-        ${Format}
+        ${Format},
+
+        [Parameter()]
+        [ValidateSet("512", "4096")]
+        [ArgumentCompleter( { "512", "4096" })]
+        [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Category('Path')]
+        [System.Int64]
+        # Specifies the disk physical sector size in bytes.
+        ${PhysicalSectorSize},
+
+        [Parameter()]
+        [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Category('Path')]
+        [string]
+        # Specifies the storage path ARM ID where the disk will be stored.
+        ${TargetStoragePathId}
     )
     
     process {
         $isDynamicDisk = [System.Convert]::ToBoolean($IsDynamic)
         $osDisk = [System.Convert]::ToBoolean($IsOSDisk)
 
-        $DiskObject = [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20210216Preview.AzStackHCIDiskInput]::new(
+        $DiskObject = [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.AzStackHCIDiskInput]::new(
             $DiskID, 
             $isDynamicDisk, 
             $Size, 
             $Format, 
-            $osDisk
+            $osDisk,
+            $PhysicalSectorSize,
+            $TargetStoragePathId
         )
 
         return $DiskObject 

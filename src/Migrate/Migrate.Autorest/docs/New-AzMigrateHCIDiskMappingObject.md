@@ -14,7 +14,7 @@ Creates a new disk mapping
 
 ```
 New-AzMigrateHCIDiskMappingObject -DiskID <String> -Format <String> -IsDynamic <String> -IsOSDisk <String>
- -Size <Int64> [<CommonParameters>]
+ -Size <Int64> [-PhysicalSectorSize <Int64>] [-TargetStoragePathId <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -100,6 +100,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -PhysicalSectorSize
+Specifies the disk physical sector size in bytes.
+
+```yaml
+Type: System.Int64
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Size
 Specifies the disk size in GB.
 
@@ -115,6 +130,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -TargetStoragePathId
+Specifies the storage path ARM ID where the disk will be stored.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
@@ -122,7 +152,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20210216Preview.AzStackHCIDiskInput
+### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.AzStackHCIDiskInput
 
 ## NOTES
 

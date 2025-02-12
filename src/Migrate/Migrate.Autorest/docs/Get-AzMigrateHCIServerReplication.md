@@ -292,7 +292,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20210216Preview.IProtectedItemModel
+### Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.IProtectedItemModel
 
 ## NOTES
 
