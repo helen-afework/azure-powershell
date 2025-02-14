@@ -22,6 +22,7 @@ The Set-AzMigrateHCIServerReplication cmdlet updates the target properties for t
 https://learn.microsoft.com/powershell/module/az.migrate/set-azmigratehciserverreplication
 #>
 function Set-AzMigrateHCIServerReplication {
+    [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Runtime.PreviewMessageAttribute("This cmdlet is using a preview API version and is subject to breaking change in a future release.")]
     [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.IJobModel])]
     [CmdletBinding(DefaultParameterSetName = 'ById', PositionalBinding = $false, SupportsShouldProcess, ConfirmImpact='Medium')]
     param(

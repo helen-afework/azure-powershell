@@ -23,6 +23,7 @@ https://learn.microsoft.com/powershell/module/az.migrate/initialize-azmigratehci
 #>
 
 function Initialize-AzMigrateHCIReplicationInfrastructure {
+    [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Runtime.PreviewMessageAttribute("This cmdlet is using a preview API version and is subject to breaking change in a future release.")]
     [OutputType([System.Boolean], ParameterSetName = 'AzStackHCI')]
     [CmdletBinding(DefaultParameterSetName = 'AzStackHCI', PositionalBinding = $false, SupportsShouldProcess, ConfirmImpact = 'Medium')]
     param(
@@ -707,17 +708,18 @@ function Initialize-AzMigrateHCIReplicationInfrastructure {
             throw "Unexpected error occurs during Cache Storgae Account selection process. Please re-run this command or contact support if help needed."
         }
 
+        $params = @{
+            contributorRoleDefId                = [System.Guid]::parse($RoleDefinitionIds.ContributorId);
+            storageBlobDataContributorRoleDefId = [System.Guid]::parse($RoleDefinitionIds.StorageBlobDataContributorId);
+            sourceAppAadId                      = $sourceDra.ResourceAccessIdentityObjectId;
+            targetAppAadId                      = $targetDra.ResourceAccessIdentityObjectId;
+        }
+
         # Grant vault Identity Aad access to Cache Storage Account
         if (![string]::IsNullOrEmpty($replicationVault.IdentityPrincipalId))
         {
-            $params = @{
-                contributorRoleDefId                = [System.Guid]::parse($RoleDefinitionIds.ContributorId);
-                storageBlobDataContributorRoleDefId = [System.Guid]::parse($RoleDefinitionIds.StorageBlobDataContributorId);
-                sourceAppAadId                      = $sourceDra.ResourceAccessIdentityObjectId;
-                targetAppAadId                      = $targetDra.ResourceAccessIdentityObjectId;
-                vaultIdentityAadId                  = $replicationVault.IdentityPrincipalId;
-            }
-    
+            $params.vaultIdentityAadId = $replicationVault.IdentityPrincipalId
+
             # Grant vault Identity Aad access to Cache Storage Account as "Contributor"
             $hasAadAppAccess = Get-AzRoleAssignment `
                 -ObjectId $params.vaultIdentityAadId `

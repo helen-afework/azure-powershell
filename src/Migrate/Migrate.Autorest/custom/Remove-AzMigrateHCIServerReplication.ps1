@@ -22,6 +22,7 @@ The Remove-AzMigrateHCIServerReplication cmdlet stops the replication for a migr
 https://learn.microsoft.com/powershell/module/az.migrate/remove-azmigratehciserverreplication
 #>
 function Remove-AzMigrateHCIServerReplication {
+    [Microsoft.Azure.PowerShell.Cmdlets.Migrate.Runtime.PreviewMessageAttribute("This cmdlet is using a preview API version and is subject to breaking change in a future release.")]
     [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Migrate.Models.Api20240901.IJobModel])]
     [CmdletBinding(DefaultParameterSetName = 'ByID', PositionalBinding = $false, SupportsShouldProcess, ConfirmImpact='Medium')]
     param(
